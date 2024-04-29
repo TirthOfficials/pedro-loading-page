@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotating Raccoon</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loading-text {
+    color: white; /* Set the text color to white */
+    position: absolute; /* Position it over the other content */
+    top: 70%; /* Position it below the circle */
+    text-align: center; /* Center the text horizontally */
+    width: 100%; /* Make the text container full width */
+    font-size: 1.5em; /* Adjust the size of the text as needed */
+    z-index: 10; /* Ensure it's above other content */
+  }
+  .circle {
+    background-color: white;
+    border-radius: 50%;
+    width: 300px; /* Size of the circle */
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+   .rotate-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-origin: center;
+    animation: rotate 5s linear infinite;
+   }
+
+  .raccoon {
+    width: 180%; /* Adjust the size of the raccoon image as needed */
+    position: absolute;
+    left: -45%;
+    bottom: -80%; /* Align the bottom of the image with the bottom of the circle */
+    transform-origin: 50% 100%; /* Set the pivot point for the bounce at the bottom center */
+    animation: rotate 4s linear infinite, bounce 0.5s ease-in-out infinite alternate;
+  }
+
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-50px) rotate(0deg);
+    }
+  }
+</style>
+</head>
+<body>
+<div class="circle">
+  <div class="rotate-container">
+    <img src="pedro1.png" alt="Rotating Raccoon" class="raccoon">
+  </div>
+</div>
+<div class="loading-text"><br><h1>Please wait, page is loading...</h1></div>
+</body>
+</html>
+
